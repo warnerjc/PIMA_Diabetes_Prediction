@@ -13,6 +13,7 @@ jobs:
         run: pip install -r self_paced_courses_1_mlops/requirements.txt
       - name: Upload Dataset to Hugging Face Hub
         env:
+          HF_USER: ${{ secrets.HF_USER }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: python self_paced_courses_1_mlops/model_building/data_register.py
 
