@@ -5,7 +5,7 @@ from huggingface_hub import hf_hub_download
 import joblib
 
 # Download and load the model
-model_path = hf_hub_download(repo_id=f"{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction", filename="best_pima_diabetes_model_v1.joblib")                                       # read the Hugging Face username from HF_USER
+model_path = hf_hub_download(repo_id=f"warnerjc/PIMA-Diabetes-Prediction", filename="best_pima_diabetes_model_v1.joblib")                                       # read the Hugging Face username from HF_USER
 model = joblib.load(model_path)
 
 # Streamlit UI for Machine Failure Prediction

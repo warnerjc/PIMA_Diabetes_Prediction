@@ -12,7 +12,7 @@ from huggingface_hub import login, HfApi
 
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
-DATASET_PATH = f"hf://datasets/{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction/pima.csv"                  # read the Hugging Face username from HF_USER
+DATASET_PATH = f"hf://datasets/warnerjc/PIMA-Diabetes-Prediction/pima.csv"                  # read the Hugging Face username from HF_USER
 df = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
@@ -39,6 +39,6 @@ for file_path in files:
     api.upload_file(
         path_or_fileobj=file_path,
         path_in_repo=file_path.split("/")[-1],  # just the filename
-        repo_id=f"{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction",                                           # read the Hugging Face username from HF_USER
+        repo_id=f"warnerjc/PIMA-Diabetes-Prediction",                                           # read the Hugging Face username from HF_USER
         repo_type="dataset",
     )

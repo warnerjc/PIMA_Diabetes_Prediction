@@ -18,10 +18,10 @@ from huggingface_hub.utils import RepositoryNotFoundError, HfHubHTTPError
 
 api = HfApi()
 
-Xtrain_path = f"hf://datasets/{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction/Xtrain.csv"                    # read the Hugging Face username from HF_USER
-Xtest_path = f"hf://datasets/{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction/Xtest.csv"                      # read the Hugging Face username from HF_USER
-ytrain_path = f"hf://datasets/{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction/ytrain.csv"                    # read the Hugging Face username from HF_USER
-ytest_path = f"hf://datasets/{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction/ytest.csv"                      # read the Hugging Face username from HF_USER
+Xtrain_path = f"hf://datasets/warnerjc/PIMA-Diabetes-Prediction/Xtrain.csv"                    # read the Hugging Face username from HF_USER
+Xtest_path = f"hf://datasets/warnerjc/PIMA-Diabetes-Prediction/Xtest.csv"                      # read the Hugging Face username from HF_USER
+ytrain_path = f"hf://datasets/warnerjc/PIMA-Diabetes-Prediction/ytrain.csv"                    # read the Hugging Face username from HF_USER
+ytest_path = f"hf://datasets/warnerjc/PIMA-Diabetes-Prediction/ytest.csv"                      # read the Hugging Face username from HF_USER
 
 Xtrain = pd.read_csv(Xtrain_path)
 Xtest = pd.read_csv(Xtest_path)
@@ -86,7 +86,7 @@ print(classification_report(ytest, y_pred_test))
 joblib.dump(best_model, "best_pima_diabetes_model_v1.joblib")
 
 # Upload to Hugging Face
-repo_id = f"{os.getenv('HF_USER')}/PIMA-Diabetes-Prediction"                                         # read the Hugging Face username from HF_USER
+repo_id = f"warnerjc/PIMA-Diabetes-Prediction"                                         # read the Hugging Face username from HF_USER
 repo_type = "model"
 
 api = HfApi(token=os.getenv("HF_TOKEN"))
